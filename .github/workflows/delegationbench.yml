@@ -14,4 +14,4 @@ jobs:
         with:
           scenarios: scenarios
           defense: envelope
-          upload-sarif: "true"
+          upload-sarif: "false"

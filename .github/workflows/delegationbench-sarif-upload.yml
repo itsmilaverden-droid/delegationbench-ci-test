@@ -1,15 +1,17 @@
-name: DelegationBench gate demo (expected to fail)
+name: SARIF upload to code scanning (currently fails)
 on:
   push:
     branches: [main]
 permissions:
   contents: read
+  security-events: write
 jobs:
-  gate-demo:
+  sarif-upload:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: sergeyizmailov/DelegationBench@v0.4.4
         with:
-          scenarios: regression/tampered-attack-001.yaml
-          defense: none
+          scenarios: scenarios
+          defense: envelope
+          upload-sarif: "true"
